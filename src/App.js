@@ -1,14 +1,19 @@
+import { Route, Routes } from 'react-router-dom';
+import Home from './routes/home/home.component.jsx'
+import Navigation from './routes/navigation/navigation.component.jsx'
+import Authentication from './routes/authentication/authentication.component.jsx'
+import Shop from './routes/shop/shop.component.jsx';
+
 const App = () => {
   return (
-    <div className="categories-container">
-      <div className="category-container">
-        <div className="category-body-container">
-          <h2>Hats</h2>
-          <p>Shop Now</p>
-        </div>
-      </div>
-    </div>
-  );
+    <Routes>
+      <Route path='/' element={<Navigation />}>
+        <Route path='/' element={<Home />} />
+        <Route path='shop' element={<Shop />} />
+        <Route path='auth' element={<Authentication />} />
+      </Route>
+    </Routes>
+  )
 }
 
 export default App;
